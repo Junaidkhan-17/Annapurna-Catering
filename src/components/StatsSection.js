@@ -52,7 +52,7 @@ const StatsSection = () => {
         }
       });
     };
-  }, [cardsInView]);
+  }, [cardRefs, cardsInView]);
 
   return (
     <section className="py-5 stats-section">
