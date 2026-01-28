@@ -49,22 +49,22 @@ const MenuSection = () => {
 
   // Auto-rotate images every 2.5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setImageIndices(prev => ({
-        dalChawal: (prev.dalChawal + 1) % dishImages.dalChawal.length,
-        rotiSabzi: (prev.rotiSabzi + 1) % dishImages.rotiSabzi.length,
-        paneerButterMasala: (prev.paneerButterMasala + 1) % dishImages.paneerButterMasala.length,
-        rajmaChawal: (prev.rajmaChawal + 1) % dishImages.rajmaChawal.length,
-        sambarRice: (prev.sambarRice + 1) % dishImages.sambarRice.length,
-        kadhiPakora: (prev.kadhiPakora + 1) % dishImages.kadhiPakora.length,
-        choleBhature: (prev.choleBhature + 1) % dishImages.choleBhature.length,
-        alooParatha: (prev.alooParatha + 1) % dishImages.alooParatha.length,
-        vegetablePulao: (prev.vegetablePulao + 1) % dishImages.vegetablePulao.length
-      }));
-    }, 5000); // Change every 5 seconds
+  const interval = setInterval(() => {
+    setImageIndices(prev => ({
+      dalChawal: (prev.dalChawal + 1) % 2,
+      rotiSabzi: (prev.rotiSabzi + 1) % 2,
+      paneerButterMasala: (prev.paneerButterMasala + 1) % 2,
+      rajmaChawal: (prev.rajmaChawal + 1) % 2,
+      sambarRice: (prev.sambarRice + 1) % 2,
+      kadhiPakora: (prev.kadhiPakora + 1) % 2,
+      choleBhature: (prev.choleBhature + 1) % 2,
+      alooParatha: (prev.alooParatha + 1) % 2,
+      vegetablePulao: (prev.vegetablePulao + 1) % 2
+    }));
+  }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []); // 👈 Empty dependency array is safe now!
 
   return (
     <section className="py-5 bg-light">

@@ -28,16 +28,36 @@ const Footer = () => {
                   occasions.
                 </p>
                 <div className="social-links mt-3">
-                  <a href="#" className="social-icon">
+                  <a
+                    href="https://www.facebook.com/"
+                    className="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="#" className="social-icon">
+                  <a
+                    href="https://x.com/"
+                    className="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-twitter"></i>
                   </a>
-                  <a href="#" className="social-icon">
+                  <a
+                    href="https://www.instagram.com/"
+                    className="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-instagram"></i>
                   </a>
-                  <a href="#" className="social-icon">
+                  <a
+                    href="https://www.pinterest.com/"
+                    className="social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-pinterest"></i>
                   </a>
                 </div>
@@ -129,12 +149,7 @@ const Footer = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Stylized W logo (exact from your image) */}
-                  <path
-                    d=""
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2.5"
-                  />
+                  <path d="" fill="none" stroke="white" strokeWidth="2.5" />
                   {/* "WEBDOCK" */}
                   <text
                     x="66"
@@ -158,7 +173,7 @@ const Footer = () => {
                   >
                     STUDIOS
                   </text>
-                  
+
                   {/* "Created by" — above the logo, smaller */}
                   <text
                     x="16"

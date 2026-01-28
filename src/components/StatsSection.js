@@ -9,50 +9,51 @@ const StatsSection = () => {
     'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
   ];
 
-  // Refs for animation
-  const cardRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null)
-  ];
+  // ✅ Use useRef for stable reference
+  const cardRefs = useRef([
+    React.createRef(),
+    React.createRef(),
+    React.createRef()
+  ]);
 
-  // State for in-view cards
   const [cardsInView, setCardsInView] = useState([false, false, false]);
 
-  // Intersection Observer
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.dataset.index, 10);
-          if (entry.isIntersecting && !cardsInView[index]) {
-            setCardsInView(prev => {
-              const newState = [...prev];
-              newState[index] = true;
-              return newState;
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // observe each card ref
-    cardRefs.forEach((ref, index) => {
-      if (ref && ref.current) {
-        ref.current.dataset.index = index;
-        observer.observe(ref.current);
-      }
-    });
-
-    return () => {
-      cardRefs.forEach(ref => {
-        if (ref && ref.current) {
-          observer.unobserve(ref.current);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index, 10);
+        if (entry.isIntersecting && !cardsInView[index]) {
+          setCardsInView(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
         }
       });
-    };
-  }, [cardRefs, cardsInView]);
+    },
+    { threshold: 0.1 }
+  );
+
+  // ✅ Store current ref values in a local variable
+  const currentRefs = cardRefs.current;
+
+  currentRefs.forEach((ref, index) => {
+    if (ref.current) {
+      ref.current.dataset.index = index;
+      observer.observe(ref.current);
+    }
+  });
+
+  return () => {
+    // ✅ Use the local variable in cleanup
+    currentRefs.forEach(ref => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    });
+  };
+}, [cardsInView]);
 
   return (
     <section className="py-5 stats-section">
@@ -64,10 +65,7 @@ const StatsSection = () => {
         
         <div className="row">
           {/* Corporate Catering */}
-          <div 
-            className="col-md-4 mb-4"
-            ref={cardRefs[0]}
-          >
+          <div className="col-md-4 mb-4" ref={cardRefs.current[0]}>
             <div 
               className={`service-card p-4 rounded-3 h-100 ${cardsInView[0] ? 'animate-slide-in-left' : ''}`}
               style={{ backgroundImage: `url(${serviceImages[0]})` }}
@@ -81,10 +79,7 @@ const StatsSection = () => {
           </div>
           
           {/* Private Events */}
-          <div 
-            className="col-md-4 mb-4"
-            ref={cardRefs[1]}
-          >
+          <div className="col-md-4 mb-4" ref={cardRefs.current[1]}>
             <div 
               className={`service-card p-4 rounded-3 h-100 ${cardsInView[1] ? 'animate-slide-in-right' : ''}`}
               style={{ backgroundImage: `url(${serviceImages[1]})` }}
@@ -98,10 +93,7 @@ const StatsSection = () => {
           </div>
           
           {/* Special Diet Menus */}
-          <div 
-            className="col-md-4 mb-4"
-            ref={cardRefs[2]}
-          >
+          <div className="col-md-4 mb-4" ref={cardRefs.current[2]}>
             <div 
               className={`service-card p-4 rounded-3 h-100 ${cardsInView[2] ? 'animate-slide-in-left' : ''}`}
               style={{ backgroundImage: `url(${serviceImages[2]})` }}

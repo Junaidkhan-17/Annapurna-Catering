@@ -13,15 +13,15 @@ const IntroductionSection = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTextVisible(false);
-      setTimeout(() => {
-        setCurrentImage((prev) => (prev + 1) % backgroundImages.length);
-        setTextVisible(true);
-      }, 300);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
+  const interval = setInterval(() => {
+    setTextVisible(false);
+    setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % backgroundImages.length);
+      setTextVisible(true);
+    }, 300);
+  }, 6000);
+  return () => clearInterval(interval);
+}, [backgroundImages.length]); // 👈 Added here
 
   useEffect(() => {
     const timer = setTimeout(() => {

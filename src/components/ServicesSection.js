@@ -42,24 +42,28 @@ const ServicesSection = () => {
   }, [cardsInView]);
 
   // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+  // Intersection Observer for scroll animations
+useEffect(() => {
+  const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+  
+  // Store current ref values in a local variable
+  const currentRefs = cardRefs.current;
 
-    cardRefs.current.forEach((ref, index) => {
+  currentRefs.forEach((ref, index) => {
+    if (ref.current) {
+      ref.current.dataset.index = index;
+      observer.observe(ref.current);
+    }
+  });
+
+  return () => {
+    currentRefs.forEach(ref => {
       if (ref.current) {
-        ref.current.dataset.index = index;
-        observer.observe(ref.current);
+        observer.unobserve(ref.current);
       }
     });
-
-    return () => {
-      cardRefs.current.forEach(ref => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      });
-    };
-  }, [handleIntersection]);
+  };
+}, [handleIntersection]);
 
   return (
     <section 
