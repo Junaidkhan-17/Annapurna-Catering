@@ -1,0 +1,68 @@
+body {
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* src/index.css */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --orange: #e77e23;
+}
+
+.text-orange {
+  color: var(--orange) !important;
+}
+
+.btn-orange {
+  background-color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: white !important;
+}
+
+.btn-orange:hover {
+  background-color: #d16a1a !important;
+  border-color: #d16a1a !important;
+}
+
+.bg-orange {
+  background-color: var(--orange) !important;
+}
+
+/* Add this to your index.css or App.css */
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom styles for better appearance */
+.stat-card {
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-card {
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Make sure to add this to your index.html in the head section */
+/* 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+*/

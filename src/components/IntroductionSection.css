@@ -1,0 +1,150 @@
+/* Google Fonts - Elegant & Readable */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+/* Section Styling */
+.introduction-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  font-family: 'Merriweather', serif; /* Elegant serif for body */
+}
+
+/* Image Carousel */
+.image-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.4s ease;
+}
+
+/* Blur on hover over content */
+#intro-hover-target:hover ~ .image-carousel,
+#intro-hover-target:hover + .image-carousel {
+  filter: blur(5px);
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+/* Hero Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 8, 6, 0.92) 0%, rgba(20, 15, 10, 0.88) 100%);
+  z-index: 1;
+}
+
+/* Introduction Content */
+.introduction-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* Title - Poppins for modern heading */
+.intro-title {
+  color: white;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+/* Highlighted Text */
+.highlight-annapurna {
+  color: #ff9800;
+  position: relative;
+}
+
+.highlight-brand {
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+.highlight-keyword {
+  color: #4CAF50;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Introduction Text - Darker & More Readable */
+.introduction-text p {
+  color: #f8f9fa; /* Very light but not pure white */
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Improves contrast */
+}
+
+/* Fade-in Animation */
+.introduction-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInText 1s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeInText 1s ease-out forwards;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .intro-title {
+    font-size: 2.5rem;
+  }
+  
+  .introduction-text p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .introduction-section {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  
+  .intro-title {
+    font-size: 2rem;
+  }
+  
+  .introduction-text p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

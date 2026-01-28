@@ -1,0 +1,322 @@
+/* BlogSection.css */
+
+/* Section Styling */
+.blog-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.blog-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 20%),
+              radial-gradient(circle at 90% 80%, rgba(76, 175, 80, 0.05) 0%, transparent 20%);
+  z-index: 0;
+}
+
+.blog-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Title */
+.blog-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.blog-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #4CAF50);
+  border-radius: 2px;
+}
+
+.blog-section .text-muted {
+  color: #6c757d;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Blog Card Styling */
+.blog-card {
+  background: white;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.blog-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Blog Image */
+.blog-image {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 15px 15px 0 0;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.08);
+}
+
+.blog-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, rgba(0, 0, 0, 0.3) 0%, rgba(30, 20, 10, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.blog-card:hover .blog-image::before {
+  opacity: 1;
+}
+
+/* Blog Content */
+.blog-content {
+  padding: 1.8rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  transition: all 0.4s ease;
+}
+
+.blog-card:hover .blog-content {
+  background: linear-gradient(135deg, #fff9f7 0%, #fff5f3 100%);
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover .blog-content h3 {
+  color: #ff6b35;
+  transform: translateX(5px);
+}
+
+.blog-content p {
+  color: #6c757d;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 0.98rem;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover .blog-content p {
+  color: #495057;
+  transform: translateX(3px);
+}
+
+/* Badge Styling */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 25px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff6b35, #e85a2a);
+  box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+}
+
+/* Read More Button */
+.btn-read-more {
+  background: transparent;
+  color: #ff6b35;
+  border: 2px solid #ff6b35;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-read-more::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-read-more:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-read-more:hover {
+  background: #ff6b35;
+  color: white;
+  transform: translateX(8px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Discover Blog Button */
+.btn-orange {
+  background: linear-gradient(135deg, #ff6b35 0%, #e85a2a 100%);
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.9rem 2.2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-orange::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-orange:hover::before {
+  width: 500px;
+  height: 500px;
+}
+
+.btn-orange:hover {
+  background: linear-gradient(135deg, #e85a2a 0%, #d44d1e 100%);
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+}
+
+.btn-orange:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .blog-section h2 {
+    font-size: 2rem;
+  }
+  
+  .blog-image {
+    height: 220px;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .blog-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .blog-section .text-muted {
+    font-size: 1rem;
+  }
+  
+  .blog-image {
+    height: 200px;
+  }
+  
+  .blog-content {
+    padding: 1.5rem;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .blog-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .btn-read-more {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+  }
+  
+  .btn-orange {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Additional Hover Effects */
+.blog-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #4CAF50, #ff6b35);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+.blog-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Orange Color Variable */
+.bg-orange {
+  background-color: #ff6b35 !important;
+}
