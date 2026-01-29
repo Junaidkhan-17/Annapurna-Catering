@@ -25,7 +25,12 @@ const Contact = () => {
               <p className="lead fs-4">Get in touch with our team for any inquiries</p>
               <div className="contact-highlight-badge mt-3">
                 <i className="fas fa-phone me-2"></i>
-                <strong>+91 092262 03020</strong> - Call us now for immediate assistance!
+                <a
+            href="tel:+9109226203020"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            <strong>+91 092262 03020</strong> – Call us now for immediate assistance!
+          </a>
               </div>
             </div>
           </div>

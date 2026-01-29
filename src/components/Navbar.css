@@ -141,17 +141,42 @@
   transition: color 0.25s ease;
 }
 
-/* ============================= */
-/* NAV LINK HOVER / TAP EFFECT */
-/* ============================= */
+/* GET STARTED BUTTON HOVER EFFECT */
+.btn-start {
+  background: #25d366;
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
 
+/* Hover (PC) */
+.btn-start:hover {
+  background: #1ebe5d; /* slightly darker green */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* Tap / Click (Mobile + PC) */
+.btn-start:active {
+  transform: scale(0.96);
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.4);
+}
+/* NAV LINKS BASE */
 .nav-menu a {
   position: relative;
-  padding: 6px 4px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 6px 2px;
   transition: color 0.25s ease;
 }
 
-/* underline effect */
+/* Underline animation */
 .nav-menu a::after {
   content: "";
   position: absolute;
@@ -159,12 +184,11 @@
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: linear-gradient(90deg, #2ecc71, #d97706);
-  transition: width 0.25s ease;
-  border-radius: 2px;
+  background: #2ecc71;
+  transition: width 0.3s ease;
 }
 
-/* HOVER (PC) */
+/* Hover (PC) */
 .nav-menu a:hover {
   color: #2ecc71;
 }
@@ -173,26 +197,10 @@
   width: 100%;
 }
 
-/* ACTIVE / TAP (MOBILE + CLICK) */
+/* Tap / Click (Mobile + PC) */
 .nav-menu a:active {
-  color: #d97706;
-}
-
-.nav-menu a:active::after {
-  width: 100%;
-}
-
-/* GET STARTED BUTTON HOVER */
-.btn-start {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn-start:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.35);
-}
-
-.btn-start:active {
   transform: scale(0.96);
 }
+
+
 }

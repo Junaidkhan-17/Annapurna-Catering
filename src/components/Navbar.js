@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="nav-container">
 
         {/* LOGO + BRAND TEXT */}
-        <Link to="/Home" className="brand" onClick={closeMenu}>
+        <Link to="/" className="brand" onClick={closeMenu}>
           <img
             src={logo}
             alt="Annapurna Mess & Catering"
