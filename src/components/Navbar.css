@@ -41,7 +41,7 @@
 
 
 .brand-text {
-  font-size: 70px;
+  font-size: 30px;
   font-weight: 650;
   color: #222;
   white-space: nowrap;
@@ -133,4 +133,66 @@
       transform: translateY(0);
     }
   }
+
+  /* NAV LINKS – HOVER EFFECT */
+.nav-menu a {
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.25s ease;
+}
+
+/* ============================= */
+/* NAV LINK HOVER / TAP EFFECT */
+/* ============================= */
+
+.nav-menu a {
+  position: relative;
+  padding: 6px 4px;
+  transition: color 0.25s ease;
+}
+
+/* underline effect */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #2ecc71, #d97706);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+/* HOVER (PC) */
+.nav-menu a:hover {
+  color: #2ecc71;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE / TAP (MOBILE + CLICK) */
+.nav-menu a:active {
+  color: #d97706;
+}
+
+.nav-menu a:active::after {
+  width: 100%;
+}
+
+/* GET STARTED BUTTON HOVER */
+.btn-start {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-start:active {
+  transform: scale(0.96);
+}
 }
