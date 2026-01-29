@@ -13,15 +13,15 @@ import CertificateSection from '../components/CertificateSection';
 const Home = () => {
   return (
     <div>
-      <div>
       <Navbar />
-      </div>
+      <br></br>
+      <br></br>
       <HeroSection />
       <IntroductionSection />
       <StatsSection />
       <HowItWorksSection />
       <CertificateSection />
-       <CallToActionSection />  
+      <CallToActionSection />  
       <BlogSection />
       <Footer />
     </div>

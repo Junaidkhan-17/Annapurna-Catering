@@ -6,13 +6,16 @@ import Menu from './pages/Menu';
 import Pricing from './pages/Pricing';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
     <Router>
+                <Navbar />
       <div className="App">
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/Menu" element={<Menu />} />

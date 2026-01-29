@@ -121,7 +121,8 @@ const HeroSection = () => {
 
       <div className="hero-content text-center py-5 py-lg-0">
         <div className="container h-100 d-flex flex-column justify-content-center">
-          <h1 className="display-2 fw-bold mb-4 hero-title">
+          <h1 className="display-1 fw-bold mb-4 hero-title">
+            <br></br>
             <span className="title-word">Your</span>
             <span className="title-word">Trusted</span>
             <span className="title-highlight-annapurna">Annapurna</span>
@@ -160,12 +161,7 @@ const HeroSection = () => {
               delay={0}
             />
             <StatCard number={50} label="Daily Orders" suffix="+" delay={200} />
-            <StatCard
-              number={10}
-              label="Years Experience"
-              suffix="+"
-              delay={400}
-            />
+            
             <StatCard number={24} label="Support" suffix="/7" delay={600} />
           </div>
         </div>

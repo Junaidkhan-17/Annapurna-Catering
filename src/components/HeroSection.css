@@ -1,13 +1,19 @@
 /* HeroSection.css */
 
 /* Base Hero Section */
-.hero-section {
-  min-height: 100vh;
+.hero-section{
+  
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+}
+
+.hero-section,
+.service-hero {
+  min-height: cal(100vh - 110px);
+  padding-top: 20px;
 }
 
 /* Image Carousel */
