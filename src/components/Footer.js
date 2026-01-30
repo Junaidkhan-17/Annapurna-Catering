@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-md-4 mb-4">
+            <div className="col-md-2 mb-2">
               <h5 className="mb-3 footer-title">
                 <i className="fas fa-link me-2"></i>Quick Links
               </h5>
@@ -87,11 +87,11 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-6 mb-4">
               <h5 className="mb-3 footer-title">
                 <i className="fas fa-envelope me-2"></i>Subscribe Our Newsletter
               </h5>
-              <p className="text-muted mb-3 footer-subtitle">
+              <p className="text mb-3 footer-subtitle">
                 Get our latest update & new offers sales discount
               </p>
               <div className="newsletter-form">
@@ -196,4 +196,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer; 

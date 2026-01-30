@@ -1,61 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./HeroSection.css";
 
-// Custom hook for counting animation
-const useCountAnimation = (
-  targetNumber,
-  shouldCount = true,
-  duration = 2000,
-) => {
+// Count animation hook
+const useCountAnimation = (target, active, duration = 2000) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!shouldCount) return;
+    if (!active) return;
 
-    let startTime = null;
-    const animateCount = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const currentCount = Math.floor(progress * targetNumber);
-
-      setCount(currentCount);
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCount);
-      }
+    let start = null;
+    const step = (time) => {
+      if (!start) start = time;
+      const progress = Math.min((time - start) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
     };
-
-    requestAnimationFrame(animateCount);
-  }, [targetNumber, shouldCount, duration]);
+    requestAnimationFrame(step);
+  }, [target, active, duration]);
 
   return count;
 };
 
-// Separate StatCard component
-// Separate StatCard component
-const StatCard = ({ number, label, suffix, delay = 0 }) => {
-  const [isVisible, setIsVisible] = useState(false);
+// Stat Card
+const StatCard = ({ number, label, suffix = "", delay = 0 }) => {
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
-
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setVisible(true), delay);
+    return () => clearTimeout(t);
   }, [delay]);
 
-  const count = useCountAnimation(number, isVisible);
+  const count = useCountAnimation(number, visible);
 
   return (
-    <div className="col-md-3 mb-3">
-      <div className="stat-card bg-dark bg-opacity-75 p-3 rounded-3">
-        <div className="stat-number-container">
-          <h2 className="stat-number mb-1">
-            {isVisible ? `${count}${suffix}` : "0"}
-          </h2>
-        </div>
-        <p className="stat-label mb-0">{label}</p>
+    <div className="col-10 col-sm-6 col-md-3 mb-3">
+      <div className="stat-card">
+        <h2 className="stat-number">
+          {visible ? `${count}${suffix}` : "0"}
+        </h2>
+        <p className="stat-label">{label}</p>
       </div>
     </div>
   );
@@ -63,106 +46,78 @@ const StatCard = ({ number, label, suffix, delay = 0 }) => {
 
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [textVisible, setTextVisible] = useState(false);
+  const [showText, setShowText] = useState(false);
 
-  // Your company WhatsApp number (replace with your actual number)
-  const whatsappNumber = "+9109226203020"; // Include country code
+  const whatsappNumber = "+9109226203020";
 
-  // High-quality Indian/Desi catering images
   const images = [
-    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1606755965493-87e7501b6d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+    "https://images.unsplash.com/photo-1606755965493-87e7501b6d5c",
+    "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
   ];
 
-  // Image carousel
-  // Image carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setTextVisible(false);
+      setShowText(false);
       setTimeout(() => {
         setCurrentImage((prev) => (prev + 1) % images.length);
-        setTextVisible(true);
+        setShowText(true);
       }, 300);
     }, 5000);
     return () => clearInterval(interval);
-  }, [images.length]); // 👈 Added images.length to dependencies
+  }, [images.length]);
 
-  // Show text after component mounts
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTextVisible(true);
-    }, 500);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setShowText(true), 400);
+    return () => clearTimeout(t);
   }, []);
 
-  // Handle WhatsApp click
-  const handleWhatsAppClick = () => {
+  const openWhatsApp = () => {
     window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`, "_blank");
   };
 
   return (
-    <section className="hero-section position-relative overflow-hidden">
+    <section className="hero-section">
       <div className="image-carousel">
-        {images.map((img, index) => (
+        {images.map((img, i) => (
           <div
-            key={index}
-            className={`carousel-image ${index === currentImage ? "active" : ""}`}
-            style={{
-              backgroundImage: `url(${img})`,
-              transition: "opacity 1.5s ease-in-out",
-            }}
+            key={i}
+            className={`carousel-image ${i === currentImage ? "active" : ""}`}
+            style={{ backgroundImage: `url(${img})` }}
           />
         ))}
       </div>
 
-      <div className="hero-overlay"></div>
+      <div className="hero-overlay" />
 
-      <div className="hero-content text-center py-5 py-lg-0">
-        <div className="container h-100 d-flex flex-column justify-content-center">
-          <h1 className="display-1 fw-bold mb-4 hero-title">
-            <br></br>
-            <span className="title-word">Your</span>
-            <span className="title-word">Trusted</span>
-            <span className="title-highlight-annapurna">Annapurna</span>
-            <span className="title-highlight-mess">Mess</span>
-            <span className="title-word">and</span>
-            <span className="title-highlight-catering">Catering</span>
-            <span className="title-word">Service</span>
+      <div className="hero-content">
+        <div className="container text-center">
+          <h1 className="hero-title">
+            <span>Your</span>
+            <span>Trusted</span>
+            <span className="glow-primary">Annapurna</span>
+            <span className="glow-secondary">Mess</span>
+            <span>and</span>
+            <span className="glow-primary">Catering</span>
+            <span>Service</span>
           </h1>
-          <p
-            className={`lead mb-4 fs-4 hero-subtitle ${textVisible ? "fade-in" : ""}`}
-          >
-            Healthy, Delicious, and Fresh Food Delivered to Your Doorstep
+
+          <p className={`hero-subtitle ${showText ? "fade-in" : ""}`}>
+            Healthy, Delicious & Fresh Food Delivered to Your Doorstep
           </p>
+
           <button
-            onClick={handleWhatsAppClick}
-            className={`btn btn-green btn-sm hero-button text-white ${textVisible ? "fade-in" : ""}`}
-            style={{
-              padding: "0.25rem 0.75rem",
-              fontSize: "1.5rem",
-              minWidth: "300px",
-              height: "45px",
-              display: "inline-center",
-              alignItems: "center",
-              backgroundColor: "#2ad652ff",
-              gap: "20px",
-            }}
+            className={`hero-button ${showText ? "fade-in" : ""}`}
+            onClick={openWhatsApp}
           >
-            {" "}
             Get Started <i className="fab fa-whatsapp"></i>
           </button>
-          <div className="row mt-5 justify-content-center">
-            <StatCard
-              number={500}
-              label="Happy Customers"
-              suffix="+"
-              delay={0}
-            />
+
+          <div className="row justify-content-center mt-5">
+            <StatCard number={500} label="Happy Customers" suffix="+" />
             <StatCard number={50} label="Daily Orders" suffix="+" delay={200} />
-            
-            <StatCard number={24} label="Support" suffix="/7" delay={600} />
+            <StatCard number={24} label="Support" suffix="/7" delay={400} />
           </div>
         </div>
       </div>
@@ -171,3 +126,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+

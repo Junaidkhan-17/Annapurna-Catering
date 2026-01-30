@@ -111,9 +111,9 @@
 .footer-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: white;
+  color: rgb(97, 227, 253);
   margin-bottom: 1.5rem;
-  position: relative;
+  
   padding-bottom: 0.5rem;
 }
 
@@ -406,4 +406,4 @@
 .webdock-credit text {
   fill: white;
   gap: 2px;
-}
+} 

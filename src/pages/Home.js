@@ -9,13 +9,13 @@ import HowItWorksSection from '../components/HowItWorksSection';
 import CallToActionSection from '../components/CallToActionSection';
 import BlogSection from '../components/BlogSection';
 import CertificateSection from '../components/CertificateSection';
+import '../pages/Home.css';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
-      <br></br>
-      <br></br>
+      <main style={{ paddingTop: "68px" }} >
       <HeroSection />
       <IntroductionSection />
       <StatsSection />
@@ -24,7 +24,8 @@ const Home = () => {
       <CallToActionSection />  
       <BlogSection />
       <Footer />
-    </div>
+      </main>
+    </>
   );
 };
 

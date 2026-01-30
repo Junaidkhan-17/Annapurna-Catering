@@ -1,136 +1,87 @@
-import React, { useState } from 'react';
-import './CertificateSection.css';
+import React, { useState } from "react";
+import "./CertificateSection.css";
 
-// Import your certificate images here
-import cateringServiceBusinessCard from '../certificates/cateringServiceBusinessCard.jpeg';
-import compilanceLetterForTenderSubmission from '../certificates/compilanceLetterForTenderSubmission.jpeg';
-import foodsAndDrugsAdministrationCertificate1 from '../certificates/foodsAndDrugsAdministrationCertificate1.jpeg';
-import foodsAndDrugsAdministrationCertificate2 from '../certificates/foodsAndDrugsAdministrationCertificate2.jpeg';
-import foodsAndDrugsAdministrationCertificate3 from '../certificates/foodsAndDrugsAdministrationCertificate3.jpeg';
-import foodsAndDrugsAdministrationCertificate4 from '../certificates/foodsAndDrugsAdministrationCertificate4.jpeg';
-import FORMFCertificate from '../certificates/FORMFCertificate.jpeg';
-import gstRegistrationCertificate1 from '../certificates/gstRegistrationCertificate1.jpeg';
-import gstRegistrationCertificate2 from '../certificates/gstRegistrationCertificate2.jpeg';
-import gstRegistrationCertificate3 from '../certificates/gstRegistrationCertificate3.jpeg';
-import udyamCertificate1 from '../certificates/udyamCertificate1.jpeg';
-import udyamCertificate2 from '../certificates/udyamCertificate2.jpeg';
-import udyamCertificate3 from '../certificates/udyamCertificate3.jpeg';
+import cateringServiceBusinessCard from "../certificates/cateringServiceBusinessCard.jpeg";
+import compilanceLetterForTenderSubmission from "../certificates/compilanceLetterForTenderSubmission.jpeg";
+import foodsAndDrugsAdministrationCertificate1 from "../certificates/foodsAndDrugsAdministrationCertificate1.jpeg";
+import foodsAndDrugsAdministrationCertificate2 from "../certificates/foodsAndDrugsAdministrationCertificate2.jpeg";
+import foodsAndDrugsAdministrationCertificate3 from "../certificates/foodsAndDrugsAdministrationCertificate3.jpeg";
+import foodsAndDrugsAdministrationCertificate4 from "../certificates/foodsAndDrugsAdministrationCertificate4.jpeg";
+import FORMFCertificate from "../certificates/FORMFCertificate.jpeg";
+import gstRegistrationCertificate1 from "../certificates/gstRegistrationCertificate1.jpeg";
+import gstRegistrationCertificate2 from "../certificates/gstRegistrationCertificate2.jpeg";
+import gstRegistrationCertificate3 from "../certificates/gstRegistrationCertificate3.jpeg";
+import udyamCertificate1 from "../certificates/udyamCertificate1.jpeg";
+import udyamCertificate2 from "../certificates/udyamCertificate2.jpeg";
+import udyamCertificate3 from "../certificates/udyamCertificate3.jpeg";
 
 const CertificateSection = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [hoveredImage, setHoveredImage] = useState(null);
+  const [activeImage, setActiveImage] = useState(null);
 
   const certificateBlocks = [
     {
-      id: 1,
-      title: "Business Card & Letter for Tender Submission",
+      title: "Business & Tender Documents",
       images: [cateringServiceBusinessCard, compilanceLetterForTenderSubmission],
     },
     {
-      id: 2,
-      title: "Food and Drugs Administration Certificate",
-      images: [foodsAndDrugsAdministrationCertificate1, foodsAndDrugsAdministrationCertificate2, foodsAndDrugsAdministrationCertificate3, foodsAndDrugsAdministrationCertificate4],
+      title: "Food & Drugs Administration Certificates",
+      images: [
+        foodsAndDrugsAdministrationCertificate1,
+        foodsAndDrugsAdministrationCertificate2,
+        foodsAndDrugsAdministrationCertificate3,
+        foodsAndDrugsAdministrationCertificate4,
+      ],
     },
     {
-      id: 3,
-      title: "FORMF Certificate & GST Registration Certificate",
-      images: [FORMFCertificate, gstRegistrationCertificate1, gstRegistrationCertificate2, gstRegistrationCertificate3],
+      title: "FORM-F & GST Certificates",
+      images: [
+        FORMFCertificate,
+        gstRegistrationCertificate1,
+        gstRegistrationCertificate2,
+        gstRegistrationCertificate3,
+      ],
     },
     {
-      id: 4,
-      title: "Udyam Certificate",
+      title: "Udyam Registration Certificates",
       images: [udyamCertificate1, udyamCertificate2, udyamCertificate3],
-    }
+    },
   ];
 
-  const openModal = (image) => {
-    setSelectedImage(image);
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-    document.body.style.overflow = 'unset';
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  };
-
   return (
-    <section className="certificate-section py-5">
+    <section className="certificate-section">
       <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="mb-3">Our Certifications & Awards</h2>
-          <p className="text-muted">Recognized for excellence in food quality and service</p>
+        <div className="certificate-header">
+          <h2>Our Certifications</h2>
+          <p>Trusted & verified legal documents</p>
         </div>
-        
-        <div className="certificate-blocks">
-          {certificateBlocks.map((block) => (
-            <div key={block.id} className="certificate-block mb-5">
-              <div className="block-header text-center mb-4">
-                <h3 className="block-title">{block.title}</h3>
-              </div>
-              
-              <div className={`certificate-grid grid-${block.images.length}`}>
-                {block.images.map((image, index) => (
-                  <div 
-                    key={index} 
-                    className="certificate-item"
-                    onMouseEnter={() => setHoveredImage(image)}
-                    onMouseLeave={() => setHoveredImage(null)}
-                  >
-                    <div 
-                      className="certificate-image-wrapper"
-                      onDoubleClick={() => openModal(image)} // Changed to double-click
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={handleKeyDown}
-                    >
-                      <img 
-                        src={image} 
-                        alt={`${block.title} - Certificate ${index + 1}`}
-                        className="certificate-img"
-                      />
-                      <div className="certificate-overlay">
-                        <div className="certificate-icon">
-                          <i className="fas fa-search-plus"></i>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Hover Preview */}
-                    {hoveredImage === image && (
-                      <div className="hover-preview">
-                        <img 
-                          src={image} 
-                          alt="Preview" 
-                          className="preview-img"
-                        />
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+
+        {certificateBlocks.map((block, i) => (
+          <div className="certificate-block" key={i}>
+            <h3 className="block-title">{block.title}</h3>
+
+            <div className="certificate-grid">
+              {block.images.map((img, index) => (
+                <div
+                  key={index}
+                  className="certificate-thumb"
+                  onClick={() => setActiveImage(img)}
+                >
+                  <img src={img} alt="Certificate" />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
-      {/* Modal */}
-      {selectedImage && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
-              <i className="fas fa-times"></i>
+      {/* Mobile / Click Modal */}
+      {activeImage && (
+        <div className="certificate-modal" onClick={() => setActiveImage(null)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setActiveImage(null)}>
+              ✕
             </button>
-            <img 
-              src={selectedImage} 
-              alt="Certificate" 
-              className="modal-img"
-            />
+            <img src={activeImage} alt="Certificate Full View" />
           </div>
         </div>
       )}

@@ -1,84 +1,144 @@
-/* HowItWorksSection.css */
+/* SECTION */
 .how-it-works-section {
-  background-color: #f8f9fa;
+  padding: 90px 0;
+  background: #f8f9fa;
 }
 
+/* HEADER */
+.how-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.how-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.highlight-text {
+  color: #ff6b35;
+}
+
+.how-header p {
+  margin-top: 12px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* CARD */
 .step-card {
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 320px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 330px;
+  border-radius: 18px;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
-.step-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
-}
-
-.step-overlay {
+/* 🔑 FIXED OVERLAY (lighter & correct layer) */
+.step-card::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+/* HOVER */
+.step-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.25);
+}
+
+.step-card:hover::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+/* CONTENT */
+.step-overlay {
+  position: relative;
+  z-index: 2;
   height: 100%;
-  background: linear-gradient(160deg, rgba(0, 0, 0, 0.85) 0%, rgba(40, 25, 15, 0.7) 100%);
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* NUMBER */
+.step-number {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ff6b35;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: inherit;
-}
-
-.step-card h3 {
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-}
-
-.step-card p {
-  font-size: 1.05rem;
-  max-width: 90%;
-  line-height: 1.6;
-}
-
-/* Enhanced step number styling */
-.step-number {
-  width: 72px;
-  height: 72px;
-  font-size: 1.8rem;
-  box-shadow: 0 4px 15px rgba(230, 80, 30, 0.4);
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(255, 107, 53, 0.45);
+  transition: transform 0.4s ease;
 }
 
 .step-card:hover .step-number {
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(230, 80, 30, 0.6);
+  transform: scale(1.15) rotate(6deg);
 }
 
-/* Responsive adjustments */
+/* TITLE */
+.step-overlay h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.step-card:hover h3 {
+  color: #ff6b35;
+}
+
+/* TEXT */
+.step-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
   .step-card {
-    min-height: 280px;
-    margin-bottom: 25px;
+    height: 280px;
   }
-  
-  .step-overlay p {
-    font-size: 0.95rem;
-    max-width: 95%;
+
+  .step-card:hover {
+    transform: none;
+  }
+
+  .how-header h2 {
+    font-size: 2.1rem;
   }
 }
 
-/* Orange accent color */
-.bg-orange {
-  background-color: #ff6b35 !important; /* Vibrant food-friendly orange */
+@media (max-width: 576px) {
+  .step-card {
+    height: 260px;
+  }
 }
