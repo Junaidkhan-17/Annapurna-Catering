@@ -14,7 +14,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const whatsappNumber = "+9109226203020";
+  const whatsappNumber = "+919340511235";
 
   const openWhatsApp = () => {
     window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`, "_blank");
@@ -50,7 +50,7 @@ const Navbar = () => {
           </Link>
 
           <a
-            href="https://wa.me/9109226203020"
+            href="https://wa.me/919340511235"
             className="btn-start"
             onClick={openWhatsApp}
           >

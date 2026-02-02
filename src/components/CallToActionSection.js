@@ -33,7 +33,7 @@ const CallToActionSection = () => {
               {/* ICON OPTIONS */}
               <div className={`cta-icons ${showOptions ? "show" : ""}`}>
                 <a
-                  href="tel:+91 092262 03020"
+                  href="tel:+91 9340511235"
                   className="cta-icon-btn phone"
                   aria-label="Call Us"
                 >
@@ -41,7 +41,7 @@ const CallToActionSection = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/91 092262 03020"
+                  href="https://wa.me/91 9340511235"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-icon-btn whatsapp"

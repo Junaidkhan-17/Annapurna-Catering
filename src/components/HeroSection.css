@@ -4,8 +4,9 @@
    HERO BASE
 ========================= */
 .hero-section {
-  min-height: 100vh;
-  padding-top: 72px;
+  min-height: auto; /*100vh*/
+  padding-top: 0px;
+  padding-bottom: 0px;
   position: relative;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
@@ -62,7 +63,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 20px;
   font-size: 3.2rem;
   line-height: 1.25;
   font-weight: 700;

@@ -2,9 +2,8 @@ import React from "react";
 import "./Footer.css";
 
 const Footer = () => {
-  // Background image for footer
   const footerBg =
-    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80";
+    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1920&q=80";
 
   return (
     <footer
@@ -14,12 +13,15 @@ const Footer = () => {
       <div className="footer-overlay">
         <div className="container">
           <div className="row">
+
+            {/* BRAND */}
             <div className="col-md-4 mb-4">
               <div className="footer-brand">
                 <h5 className="mb-3">
                   Annapurna <span className="highlight-mess">Mess</span> &{" "}
                   <span className="highlight-catering">Catering</span>
                 </h5>
+
                 <p className="footer-description">
                   Your trusted Annapurna{" "}
                   <span className="highlight-mess">mess</span> and{" "}
@@ -27,6 +29,8 @@ const Footer = () => {
                   We provide healthy, delicious, and fresh food for all
                   occasions.
                 </p>
+
+                {/* SOCIAL ICONS */}
                 <div className="social-links mt-3">
                   <a
                     href="https://www.facebook.com/"
@@ -36,14 +40,16 @@ const Footer = () => {
                   >
                     <i className="fab fa-facebook-f"></i>
                   </a>
+
                   <a
                     href="https://x.com/"
                     className="social-icon"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i className="fab fa-twitter"></i>
+                    <i className="fa-brands fa-x-twitter"></i>
                   </a>
+
                   <a
                     href="https://www.instagram.com/"
                     className="social-icon"
@@ -52,6 +58,7 @@ const Footer = () => {
                   >
                     <i className="fab fa-instagram"></i>
                   </a>
+
                   <a
                     href="https://www.pinterest.com/"
                     className="social-icon"
@@ -64,6 +71,7 @@ const Footer = () => {
               </div>
             </div>
 
+            {/* QUICK LINKS */}
             <div className="col-md-2 mb-2">
               <h5 className="mb-3 footer-title">
                 <i className="fas fa-link me-2"></i>Quick Links
@@ -87,13 +95,15 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* NEWSLETTER */}
             <div className="col-md-6 mb-4">
               <h5 className="mb-3 footer-title">
                 <i className="fas fa-envelope me-2"></i>Subscribe Our Newsletter
               </h5>
-              <p className="text mb-3 footer-subtitle">
+              <p className="footer-subtitle">
                 Get our latest update & new offers sales discount
               </p>
+
               <div className="newsletter-form">
                 <div className="input-group">
                   <input
@@ -107,7 +117,6 @@ const Footer = () => {
                 </div>
                 <small className="text-muted d-block mt-2">
                   <i className="fas fa-lock me-1"></i>We respect your privacy.
-                  Unsubscribe anytime.
                 </small>
               </div>
             </div>
@@ -115,76 +124,45 @@ const Footer = () => {
 
           <hr className="footer-divider my-4" />
 
+          {/* FOOTER BOTTOM */}
           <div className="footer-bottom text-center position-relative">
-            {/* Contact info — left-aligned */}
             <div className="footer-contact mb-3 text-start">
               <i className="fas fa-phone me-2"></i>
-              <span>+91 092262 03020</span>
+              <span>+91 9340511235</span>
               <span className="mx-3">|</span>
               <i className="fas fa-envelope me-2"></i>
-              <span>info@messcatering.com</span>
+              <span>vivekchaple@gmail.com</span>
             </div>
 
-            {/* Copyright — centered */}
-            <p className="mb-0 copyright-text">
+            <p className="copyright-text">
               &copy; {new Date().getFullYear()} Annapurna{" "}
               <span className="highlight-mess">Mess</span> &{" "}
               <span className="highlight-catering">Catering</span>. All rights
               reserved.
             </p>
 
-            {/* Webdock Studios Credit — Bottom Right */}
             <a
               href="https://webdockstudios.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="webdock-credit-link"
-              aria-label="Created by Webdock Studios"
             >
               <div className="webdock-credit">
-                <svg
-                  width="100"
-                  height="60"
-                  viewBox="0 0 150 48"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Stylized W logo (exact from your image) */}
-                  <path d="" fill="none" stroke="white" strokeWidth="2.5" />
-                  {/* "WEBDOCK" */}
+                <svg width="150" height="48" viewBox="0 0 150 48">
+                  <text x="10" y="12" fontSize="9" fill="rgba(255,255,255,0.8)">
+                    Created by
+                  </text>
                   <text
-                    x="66"
-                    y="22"
-                    fontFamily="Arial, sans-serif"
-                    fontSize="15"
+                    x="10"
+                    y="28"
+                    fontSize="16"
                     fontWeight="bold"
                     fill="white"
                   >
                     WEBDOCK
                   </text>
-                  {/* "STUDIOS" */}
-                  <text
-                    x="66"
-                    y="34"
-                    fontFamily="Arial, sans-serif"
-                    fontSize="10"
-                    fontWeight="normal"
-                    fill="white"
-                    right="10"
-                  >
+                  <text x="10" y="40" fontSize="10" fill="white">
                     STUDIOS
-                  </text>
-
-                  {/* "Created by" — above the logo, smaller */}
-                  <text
-                    x="16"
-                    y="10"
-                    fontFamily=""
-                    fontSize="9"
-                    fontWeight="100"
-                    fill="rgba(255,255,255,0.85)"
-                    gap="5"
-                  >
-                    Created by
                   </text>
                 </svg>
               </div>
@@ -196,4 +174,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

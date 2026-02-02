@@ -1,0 +1,113 @@
+.post-carousel-section {
+  padding: 60px 20px;
+  background: radial-gradient(circle at top, #1b2a2f, #0b1419);
+  overflow: hidden;
+}
+
+/* ---------- Title ---------- */
+.carousel-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+.carousel-title span {
+  color: #2ecc71;
+  text-shadow: 0 0 12px rgba(46, 204, 113, 0.7);
+}
+
+/* ---------- Container ---------- */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Track ---------- */
+.carousel-track {
+  position: relative;
+  height: 380px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Cards ---------- */
+.carousel-card {
+  position: absolute;
+  width: 300px;
+  height: 380px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  transition: 
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    filter 0.6s ease;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-card.active {
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- Navigation ---------- */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.left {
+  left: 15px;
+}
+
+.nav-btn.right {
+  right: 15px;
+}
+
+/* ---------- 📱 Mobile ---------- */
+@media (max-width: 768px) {
+  .carousel-track {
+    height: 260px;
+  }
+
+  .carousel-card {
+    width: 90%;
+    height: 260px;
+    transform: scale(1) translateX(0) !important;
+    opacity: 0;
+    filter: none;
+  }
+
+  .carousel-card.active {
+    opacity: 1;
+  }
+
+  .carousel-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}

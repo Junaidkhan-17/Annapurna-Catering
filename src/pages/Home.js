@@ -10,7 +10,7 @@ import CallToActionSection from '../components/CallToActionSection';
 import BlogSection from '../components/BlogSection';
 import CertificateSection from '../components/CertificateSection';
 import '../pages/Home.css';
-
+import PostCarousel from '../components/PostCarousel';
 const Home = () => {
   return (
     <>
@@ -18,6 +18,7 @@ const Home = () => {
       <main style={{ paddingTop: "68px" }} >
       <HeroSection />
       <IntroductionSection />
+      <PostCarousel />
       <StatsSection />
       <HowItWorksSection />
       <CertificateSection />

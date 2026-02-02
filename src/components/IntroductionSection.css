@@ -6,8 +6,8 @@
 .introduction-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding: 120px 0 100px; /* 🔑 ensures it starts AFTER hero */
+  min-height: auto; /*100vh*/
+  padding: 50px 0 20px;
   font-family: "Merriweather", serif;
   overflow: hidden;
 }
@@ -33,7 +33,7 @@
 }
 
 /* =========================
-   OVERLAY (DARKER)
+   OVERLAY
 ========================= */
 .intro-overlay {
   position: absolute;
@@ -53,6 +53,7 @@
   position: relative;
   z-index: 2;
   max-width: 900px;
+  margin: auto;
   text-align: center;
   color: #e0e0e0;
 }
@@ -69,23 +70,17 @@
 }
 
 /* =========================
-   BRAND HIGHLIGHT
+   HIGHLIGHTS
 ========================= */
 .brand-highlight {
   color: #1f9d55;
   font-weight: 700;
-  text-shadow:
-    0 0 6px rgba(31, 157, 85, 0.45),
-    0 0 14px rgba(31, 157, 85, 0.6);
+  text-shadow: 0 0 12px rgba(31, 157, 85, 0.8);
 }
 
-/* =========================
-   KEYWORDS
-========================= */
 .keyword-highlight {
   color: #d4a017;
   font-weight: 600;
-  text-shadow: 0 0 6px rgba(212, 160, 23, 0.5);
 }
 
 /* =========================
@@ -96,6 +91,86 @@
   line-height: 1.8;
   margin-bottom: 1.6rem;
   color: #d8d8d8;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+.experience-arrow {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: #1f9d55;
+}
+
+.experience-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.4rem;
+  color: #f2f2f2;
+  text-shadow: 0 0 18px rgba(31, 157, 85, 0.9);
+}
+
+
+
+.experience-years {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #dcdcdc;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Years highlight */
+
+
+/* Location highlight */
+.location-highlight {
+  color: #2ecc71;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(46, 204, 113, 0.15);
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .experience-years {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+
+.experience-years span {
+  color: #1f9d55;
+  font-weight: 700;
+}
+
+
+/* =========================
+   COMPANY LIST
+========================= */
+.company-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.company-item {
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #1f9d55;
+  border-radius: 6px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.company-item:hover {
+  background: rgba(31, 157, 85, 0.18);
+  transform: translateX(6px);
 }
 
 /* =========================
@@ -120,22 +195,21 @@
    MOBILE RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  .introduction-section {
-    padding: 80px 0;
-  }
-
   .intro-title {
     font-size: 2rem;
+  }
+
+  .experience-title {
+    font-size: 1.8rem;
   }
 
   .introduction-text p {
     font-size: 1rem;
     padding: 0 1rem;
   }
-}
 
-@media (max-width: 420px) {
-  .intro-title {
-    font-size: 1.8rem;
+  .company-item {
+    font-size: 0.95rem;
   }
 }
+

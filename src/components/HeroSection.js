@@ -48,7 +48,7 @@ const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [showText, setShowText] = useState(false);
 
-  const whatsappNumber = "+9109226203020";
+  const whatsappNumber = "+919340511235";
 
   const images = [
     "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",

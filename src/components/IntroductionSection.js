@@ -53,46 +53,77 @@ const IntroductionSection = () => {
 
         <div className={`introduction-text ${textVisible ? "fade-in" : ""}`}>
           <p>
-            At <span className="brand-highlight">Annapurna Mess & Catering</span>,
+            At{" "}
+            <span className="brand-highlight">Annapurna Mess & Catering</span>,
             we believe that exceptional food is more than just a meal — it is an
-            experience that brings people together. With over a decade of
-            dedication to quality and consistency, we have proudly earned the
-            trust of thousands of customers across Nagpur.
+            experience that brings people together. With consistent dedication
+            to quality and hygiene, we have earned the trust of numerous clients
+            across Nagpur.
           </p>
 
           <p>
             We specialize in{" "}
-            <span className="keyword-highlight">professional catering services</span>{" "}
+            <span className="keyword-highlight">
+              professional catering services
+            </span>{" "}
             and reliable{" "}
             <span className="keyword-highlight">daily mess solutions</span>,
             serving corporate offices, hostels, families, events, and special
-            occasions. Every dish is thoughtfully prepared to deliver the
-            perfect balance of taste, nutrition, and hygiene.
+            occasions.
           </p>
 
           <p>
             Our philosophy is simple — use{" "}
             <span className="keyword-highlight">fresh ingredients</span>, follow
-            traditional cooking methods, and maintain uncompromising cleanliness.
-            From sourcing quality produce to final presentation, every step is
-            handled with care and responsibility.
+            traditional cooking methods, and maintain uncompromising cleanliness
+            at every stage of food preparation and service.
           </p>
 
           <p>
             What truly sets{" "}
             <span className="brand-highlight">Annapurna Mess & Catering</span>{" "}
             apart is our personalized approach. We understand that every client
-            has unique needs, dietary preferences, and expectations. Our flexible
-            menus and attentive service ensure complete satisfaction, whether it’s
-            a small family gathering or a large corporate event.
+            has unique requirements, and we tailor our services accordingly.
           </p>
 
           <p>
-            Experience the{" "}
-            <span className="brand-highlight">Annapurna difference</span> — where
-            tradition meets innovation, quality meets trust, and every meal is
-            crafted with passion, integrity, and a genuine love for food.
+            Regarding the experience criteria outlined in the tender, I confirm
+            that I am the sole proprietor of{" "}
+            <span className="brand-highlight">
+              Annapurna Mess & Canteen Services
+            </span>{" "}
+            and have successfully provided canteen services to several esteemed
+            organizations.
           </p>
+          {/* Experience Title */}
+          <h3 className="experience-title">Experience & Client</h3>
+
+          {/* Years of Experience */}
+          <p className="experience-years">
+            With over{" "}
+            <span className="years-highlight">
+              7+ Years of Professional Experience
+            </span>{" "}
+            working in <span className="location-highlight">Nagpur</span> and{" "}
+            <span className="location-highlight">Butibori</span>, we have
+            consistently delivered hygienic, reliable, and high-quality canteen
+            services to corporate and industrial clients.
+          </p>
+
+          {/* Company List */}
+          <ul className="company-list">
+            <li className="company-item">GMMCO Ltd., Nagpur</li>
+            <li className="company-item">
+              Innovative Infra and Mining Solution Ltd., Butibori, Nagpur
+            </li>
+            <li className="company-item">GMMCO Ltd., Butibori, Nagpur</li>
+            <li className="company-item">
+              Aldecor Infrastructure Pvt. Ltd., Nagpur
+            </li>
+            <li className="company-item">
+              Aura Integrated Solution Pvt. Ltd., Butibori, Nagpur
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -100,4 +131,3 @@ const IntroductionSection = () => {
 };
 
 export default IntroductionSection;
-
