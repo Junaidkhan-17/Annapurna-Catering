@@ -90,7 +90,7 @@ const IntroductionSection = () => {
             Regarding the experience criteria outlined in the tender, I confirm
             that I am the sole proprietor of{" "}
             <span className="brand-highlight">
-              Annapurna Mess & Canteen Services
+              Annapurna Mess & Catering Services
             </span>{" "}
             and have successfully provided canteen services to several esteemed
             organizations.
