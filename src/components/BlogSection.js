@@ -32,7 +32,7 @@ const BlogSection = () => {
             },
             {
               img: blogImages[2],
-              title: "Top 7 Clean Food Catering Menu Ideas",
+              title: "Top Clean Food Catering Menu Ideas",
               desc:
                 "Traditional Indian flavors blended with modern nutrition principles.",
             },
