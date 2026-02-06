@@ -26,10 +26,10 @@ const Contact = () => {
               <div className="contact-highlight-badge mt-3">
                 <i className="fas fa-phone me-2"></i>
                 <a
-            href="tel:+9109226203020"
+            href="tel:+91 9340511235"
             style={{ color: "inherit", textDecoration: "none" }}
           >
-            <strong>+91 092262 03020</strong> – Call us now for immediate assistance!
+            <strong>+91 9340511235</strong> – Call us now for immediate assistance!
           </a>
               </div>
             </div>

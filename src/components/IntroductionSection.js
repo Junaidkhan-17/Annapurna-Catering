@@ -92,7 +92,7 @@ const IntroductionSection = () => {
             <span className="brand-highlight">
               Annapurna Mess & Catering Services
             </span>{" "}
-            and have successfully provided canteen services to several esteemed
+            and have successfully provided catering services to several esteemed
             organizations.
           </p>
           {/* Experience Title */}
